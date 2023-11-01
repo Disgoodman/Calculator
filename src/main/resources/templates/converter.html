@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер валют</title>
+</head>
+<body>
+<fieldset>
+    <legend>Конвертер валют</legend>
+    <form action="/converter" method="post" autocomplete="on">
+        <label for="first">Исходное количество валюты</label><br>
+        <input id="first" type="text" name="from" required><br>
+
+        <label for="from-currency">Из валюты</label><br>
+        <select id="from-currency" name="fromCurrency">
+            <option value="RUB">RUB</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+
+        <br/>
+        <br/>
+        <label for="to-currency">В валюту</label><br>
+        <select id="to-currency" name="toCurrency">
+            <option value="RUB">RUB</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+
+        <br/>
+        <br/>
+        <input type="submit" value="Рассчитать">
+
+        <div th:if="${error}" th:text="${error}"></div>
+        <div th:if="${result}">
+            <h2>Результат операции:</h2>
+            <p th:text="${result}"></p>
+        </div>
+    </form>
+</fieldset>
+
+<a href="/calc">Калькулятор</a>
+</body>
+</html>
